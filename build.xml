@@ -1,0 +1,23 @@
+<project name="hello-world" default="dist" basedir=".">
+
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+
+    <target name="init">
+        <tstamp/>
+    </target>
+
+    <target name="build" depends="init">
+        <mkdir dir="${build}/classes"/>
+        <javac srcdir="${src}" destdir="${build}/classes"/>
+    </target>
+
+    <target name="dist" depends="build">
+        <jar jarfile="${build}/hello-world.jar" basedir="${build}/classes"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+
+</project>
